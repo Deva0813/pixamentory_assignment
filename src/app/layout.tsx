@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(inter.className,"grid grid-cols-1 md:grid-cols-main")}>
-        <SideBar className='top-0 max-md:left-[-50%]'/>
+        <SideBar className='top-0 max-md:hidden'/>
         {children}</body>
     </html>
   )
