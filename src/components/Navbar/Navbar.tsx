@@ -2,6 +2,8 @@
 
 import * as React from "react";
 import { SideBar } from "../SideBar/SideBar";
+import Link from "next/link";
+import Image from "next/image";
 type Props = {};
 const Navbar = (props: Props) => {
   const handleOpen = () => {
@@ -12,7 +14,7 @@ const Navbar = (props: Props) => {
   };
 
   return (
-    <div className="relative p-5 md:hidden ">
+    <div className="relative p-5 h-20 md:hidden ">
       <button className="p-2 fixed z-30 " onClick={handleOpen} >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,6 +32,9 @@ const Navbar = (props: Props) => {
           />
         </svg>
       </button>
+      <Link href={"/"} className=" bg-slate-800 absolute right-5 top-5 px-4 py-1 rounded-full" > 
+        <Image src={"/images/logo.png"} width={90} height={50} alt="logo"/>
+       </Link>
       <SideBar className=" absolutes top-0 left-0 left-[-100%] transition-all duration-300 w-screen " id="sidebar" />
     </div>
   );
