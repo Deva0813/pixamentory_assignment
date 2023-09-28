@@ -1,39 +1,36 @@
 import * as React from 'react';
 type Props = {
-    long:string;
-    lat:string;
+    temp?:number
+    windSpeed?:number
+    windDir?:number
+    report?:string
 };
 const Report_Box = (props: Props) => {
     return (
-        <div className="">
+        <div className=" text-sm ">
+          <p className='text-lg p-5 pb-0 font-semibold' >Weather Report</p>
         <div className="w-96 p-5">
-            {props.lat + " " + props.long}
-          <table>
-            <tbody>
+          <table className='' >
+            <tbody className='' >
               <tr>
-                <td>Max. Temp</td>
+                <td>Temp</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td>{94646}</td>
-              </tr>
-              <tr>
-                <td>Min. Temp</td>
-                <td>&nbsp;:&nbsp;</td>
-                <td>{94646}</td>
+                <td>{props.temp + " °C"} </td>
               </tr>
               <tr>
                 <td>Wind Speed</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td>{94646}</td>
+                <td>{props.windSpeed + " km/h"}</td>
               </tr>
               <tr>
                 <td>Wind Direction</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td>{94646}</td>
+                <td>{props.windDir + " °"}</td>
               </tr>
               <tr>
                 <td>Report</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td>dadadsaadadadasada</td>
+                <td>{props.report}</td>
               </tr>
             </tbody>
           </table>

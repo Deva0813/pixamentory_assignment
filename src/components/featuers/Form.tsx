@@ -1,14 +1,17 @@
 "use client";
 import { useState } from "react";
-import { Main } from "@/types/formType";
-import axios from "axios";
+import { Main} from "@/types/formType";
 import Report_Box from "./Report_Box";
+import getData from "@/hooks/getData";
+import weather_code from "@/data/weatherCode"
 
 type Props = {};
 
-const Body = (props: Props) => {
+function Body(props: Props){
   const [lat, setLat] = useState("");
   const [long, setLong] = useState("");
+
+  const [data,setData] = useState<Main|null>(null);
 
   const getLocation = () => {
     if ("geolocation" in navigator) {
@@ -20,6 +23,16 @@ const Body = (props: Props) => {
       console.log("Geolocation is not available.");
     }
   };
+
+  const getDetails = async () =>{
+    if (lat && long){
+      const res = await getData(lat,long);
+      setData(res)
+      
+    }else{
+      alert("Provide Data.")
+    }
+  }
 
   return (
     <div className=" p-3 pt-0  ">
@@ -55,13 +68,22 @@ const Body = (props: Props) => {
           <button
             type="button"
             className=" bg-green-600 text-white p-2 px-4 rounded-lg  "
+            onClick={getDetails}
           >
             {" "}
             Submit{" "}
           </button>
         </form>
       </div>
-        <Report_Box long={long} lat={lat} />
+      <div className="">
+
+        {data && <Report_Box 
+        temp={ data ? data?.current_weather.temperature : 0 } 
+        windSpeed={data ? data?.current_weather.windspeed : 0}
+        windDir={data ? data?.current_weather.winddirection : 0}
+        report={data? weather_code[data.current_weather.weathercode]: "-" } />}
+
+      </div>
     </div>
   );
 };
