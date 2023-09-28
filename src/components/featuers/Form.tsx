@@ -1,20 +1,25 @@
 "use client";
 import { useState } from "react";
+import { Main } from "@/types/formType";
+import axios from "axios";
+import Report_Box from "./Report_Box";
+
 type Props = {};
+
 const Body = (props: Props) => {
   const [lat, setLat] = useState("");
   const [long, setLong] = useState("");
 
-  const getLocation = () =>{
+  const getLocation = () => {
     if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          setLat(position.coords.latitude as any);
-          setLong(position.coords.longitude as any );
-        });
-      } else {
-        console.log("Geolocation is not available.");
-      }
-  }
+      navigator.geolocation.getCurrentPosition(function (position) {
+        setLat(position.coords.latitude as any);
+        setLong(position.coords.longitude as any);
+      });
+    } else {
+      console.log("Geolocation is not available.");
+    }
+  };
 
   return (
     <div className=" p-3 pt-0  ">
@@ -39,14 +44,24 @@ const Body = (props: Props) => {
             id="long"
             value={long}
           />
-          <button type="button" className=" bg-slate-800 text-white p-2 px-4 rounded-lg  " onClick={getLocation} > Get Location </button>
-          <button type="button" className=" bg-green-600 text-white p-2 px-4 rounded-lg  " >
+          <button
+            type="button"
+            className=" bg-slate-800 text-white p-2 px-4 rounded-lg  "
+            onClick={getLocation}
+          >
+            {" "}
+            Get Location{" "}
+          </button>
+          <button
+            type="button"
+            className=" bg-green-600 text-white p-2 px-4 rounded-lg  "
+          >
             {" "}
             Submit{" "}
           </button>
         </form>
       </div>
-      <div className=""></div>
+        <Report_Box long={long} lat={lat} />
     </div>
   );
 };
