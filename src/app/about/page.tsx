@@ -13,6 +13,8 @@ const About = (props: Props) => {
           src={"/images/secured.svg"}
           width={200}
           height={100}
+          className="h-auto w-auto"
+          property="priority"
           alt="services"
         />
         About

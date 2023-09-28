@@ -11,7 +11,9 @@ const Services = (props: Props) => {
         <Image
           src={"/images/settings.svg"}
           width={250}
+          className="h-auto w-auto"
           height={200}
+          property="priority"
           alt="services"
         />
         Services
