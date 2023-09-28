@@ -11,6 +11,8 @@ const Contact = (props: Props) => {
           <Image
             src={"/images/rocket.svg"}
             width={200}
+            property="priority"
+            className="h-auto w-auto"
             height={200}
             alt="services"
           />

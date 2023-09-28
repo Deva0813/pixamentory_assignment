@@ -8,9 +8,9 @@ type Props = {
 };
 export const  SideBar = (props: Props) => {
   return (
-    <div className={clsx(" max-md:fixed h-screen bg-slate-800",props.className)} id={props.id}>
+    <div className={clsx(" max-md:fixed h-screen px-2 bg-slate-800",props.className)} id={props.id}>
       <div className="flex justify-center items-center">
-        <Image src={"/images/logo.png"} className="py-10" width={200} height={70} alt="logo" />
+        <Image src={"/images/logo.png"} className="h-auto w-auto pt-20 pb-10 px-2 " property="priority" width={200} height={70} alt="logo" />
       </div>
       <div className="flex flex-col">
         <Link

@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       gridTemplateColumns:{
-        "main":"17rem auto"
+        "main":"18rem auto"
       }
     },
   },

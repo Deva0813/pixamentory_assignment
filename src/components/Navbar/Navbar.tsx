@@ -32,8 +32,8 @@ const Navbar = (props: Props) => {
           />
         </svg>
       </button>
-      <Link href={"/"} className=" bg-slate-800 absolute right-5 top-5 px-4 py-1 rounded-full" > 
-        <Image src={"/images/logo.png"} width={90} height={50} alt="logo"/>
+      <Link href={"/"} className=" bg-slate-800 absolute right-5 top-4 px-4 py-1 rounded-full" > 
+        <Image src={"/images/logo.png"} property="priority" className="h-auto w-auto" width={90} height={50} alt="logo"/>
        </Link>
       <SideBar className=" absolutes top-0 left-0 left-[-100%] transition-all duration-300 w-screen " id="sidebar" />
     </div>
